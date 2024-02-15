@@ -5,8 +5,8 @@ openai.api_key = 'Your OpenAI API KEY'
 
 messages = [{"role": "system", "content": "You are a helpful assistant"}]
 
-def customChat(user_input):
-    messages.append({"role": "system", "content": user_input})
+def customChat(You):
+    messages.append({"role": "system", "content": You})
     response = openai.chat.completions.create(
         model="gpt-3.5-turbo", 
         messages= messages)
@@ -14,6 +14,6 @@ def customChat(user_input):
     messages.append({"role": "assistant", "content": reply})
     return reply
 
-demo = gradio.Interface(fn=customChat, inputs="text", outputs="text", title="Your Title")
+demo = gradio.Interface(fn=customChat, inputs="text", outputs="text", title="Chatbot Assistant")
 
 demo.launch()
